@@ -4,7 +4,7 @@
  */
 
 export const site = {
-  siteUrl: "https://username.github.io/DeW/",
+  siteUrl: "https://rishika0925.github.io/wedding-invitation/",
   defaultTheme: "lotus",
   themes: [
     { id: "marigold", label: "Marigold" },
@@ -23,7 +23,7 @@ export const site = {
     partnerB: "Rishika",
   },
   hashtag: "#RakshitWedsRishika",
-  weddingDateIso: "2026-12-11T16:30:00+05:30",
+  weddingDateIso: "2026-12-11T19:00:00+05:30",
   displayDate: "11 December 2026",
   city: "Dibai, Bulandshahr, U.P",
   music: {
@@ -69,7 +69,7 @@ export const site = {
       date: "10 December 2026",
       time: "12:00 PM",
       venue: "J.P. Palace Banquet Hall, Dibai, Bulandshahr, Uttar Pradesh",
-      note: "Turmeric, mehendi, laughter, and clothes you do not mind staining." Dress code: Green ,
+      note: "Turmeric, mehendi, laughter, and clothes you do not mind staining. Dress code: Green" ,
       accent: "marigold",
       mapsUrl: "https://share.google/2I3qFD5Ve54wqXooX",
     },
@@ -109,10 +109,10 @@ export const site = {
     heading: "The wedding venue",
     name: "K.D. FARM",
     addressLines: [
-      "Banquet Hall, Dibai, 
-       Bulandshahr, Uttar Pradesh 203393,
-      "India",
-    ],
+  "Banquet Hall, Dibai,",
+  "Bulandshahr, Uttar Pradesh 203393,",
+  "India",
+],
     directions:
       "The venue is approximately 151 km away via NH 334C, with an estimated travel time of 3 hours and 14 minutes. Alternatively, you can take SH 18 and NH 334C, covering 143 km. Valet will be waiting at the main gate.",
     mapsCta: "Open in Google Maps",
