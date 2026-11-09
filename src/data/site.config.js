@@ -129,7 +129,7 @@ export const site = {
     mapsUrl: "https://share.google/MTqfaNDdaW92cfduH",
     loadMapLabel: "Load the map",
     mapTitle: "Map of K.D. FARM",
-    embedUrl: "https://share.google/MTqfaNDdaW92cfduH",
+    embedUrl: "57XJ+RHF K.D. FARM, Dibai Khurd, Uttar Pradesh 203393",
     facadeCaption: "Tap to load Google Maps. The map is not loaded until you ask, so the page stays light.",
   },
   gallery: {
