@@ -42,7 +42,7 @@ export const site = {
     "request the pleasure of your company on the wedding of their beloved son",
 
   brideParentsLine:
-    "(D/o Mr. Sugandh Kumar (OS, BRO, Ministry of Defence) & Mrs. Guddi Devi)",
+    "(D/o Mr. Sugandh Kumar (Office Superintendent, BRO, Ministry of Defence) & Mrs. Guddi Devi)",
 
   ctaLabel: "Open the invitation",
   ctaHref: "#invitation",
