@@ -129,7 +129,7 @@ export const site = {
     mapsUrl: "https://share.google/MTqfaNDdaW92cfduH",
     loadMapLabel: "Load the map",
     mapTitle: "Map of K.D. FARM",
-    embedUrl: "57XJ+RHF K.D. FARM, Dibai Khurd, Uttar Pradesh 203393",
+    embedUrl: "https://maps.google.com/maps?q=K.D.%20FARM%20Banquet%20Hall%2C%20Dibai%20Khurd%2C%20Bulandshahr%2C%20Uttar%20Pradesh&output=embed",
     facadeCaption: "Tap to load Google Maps. The map is not loaded until you ask, so the page stays light.",
   },
   gallery: {
