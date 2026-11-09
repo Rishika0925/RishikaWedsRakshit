@@ -1,3 +1,4 @@
+
 import { lazy, Suspense, useCallback, useState } from "react";
 import { site } from "../data/site.config";
 import { asset } from "../lib/asset";
@@ -10,12 +11,12 @@ function Row({ photos, reverse, onOpen }) {
 
   return (
     <div className="marquee overflow-hidden">
-      <div className={`flex w-max gap-3 ${trackClass}`}>
+      <div className={`flex w-max items-center gap-3 ${trackClass}`}>
         {loop.map((photo, index) => (
           <button
             key={`${photo.src}-${index}`}
             type="button"
-            className="shrink-0 overflow-hidden rounded-2xl"
+            className="flex h-64 w-44 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-page sm:h-80 sm:w-56"
             onClick={() => onOpen(photo)}
           >
             <img
@@ -25,7 +26,7 @@ function Row({ photos, reverse, onOpen }) {
               height={photo.height}
               loading="lazy"
               decoding="async"
-              className="h-40 w-56 object-cover sm:h-48 sm:w-72"
+              className="h-full w-full object-contain"
             />
           </button>
         ))}
@@ -46,10 +47,12 @@ export function Gallery() {
   };
 
   const onClose = useCallback(() => setActive(null), []);
+
   const onPrev = useCallback(
     () => setActive((current) => (current + photos.length - 1) % photos.length),
     [photos.length],
   );
+
   const onNext = useCallback(
     () => setActive((current) => (current + 1) % photos.length),
     [photos.length],
@@ -61,14 +64,17 @@ export function Gallery() {
         <p className="text-center font-display text-sm tracking-[0.28em] text-gold uppercase">
           {site.gallery.eyebrow}
         </p>
+
         <h2 className="mt-3 text-center font-display text-4xl font-semibold md:text-5xl">
           {site.gallery.heading}
         </h2>
+
         <div className="mt-10 space-y-4">
           <Row photos={rowA} onOpen={onOpen} />
           <Row photos={rowB} reverse onOpen={onOpen} />
         </div>
       </div>
+
       {active !== null && (
         <Suspense fallback={null}>
           <Lightbox
