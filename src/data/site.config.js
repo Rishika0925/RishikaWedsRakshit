@@ -33,10 +33,20 @@ export const site = {
   },
   skipLink: "Skip to content",
   hero: {
-    kicker: "Together with their families",
-    ctaLabel: "Open the invitation",
-    ctaHref: "#invitation",
-  },
+  kicker: "॥ श्री गणेशाय नमः ॥",
+
+  parentsLine:
+    "Adv. Girish Kumar Gupta & Mrs. Gunjan Gupta",
+
+  invitationText:
+    "request the pleasure of your company on the wedding of their beloved son",
+
+  brideParentsLine:
+    "(D/o Mr. Sugandh Kumar (OS, BRO, Ministry of Defence) & Mrs. Guddi Devi)",
+
+  ctaLabel: "Open the invitation",
+  ctaHref: "#invitation",
+},
   invitation: {
     eyebrow: "A note from us",
     heading: "Please celebrate with us",
