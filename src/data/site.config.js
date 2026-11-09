@@ -192,7 +192,7 @@ export const site = {
   },
   footer: {
     closing: "We cannot wait to celebrate with you.",
-    crafted: "With love, from our little corner of the internet.",
+    crafted: "With love, from our hearts❤️.",
   },
 };
 
