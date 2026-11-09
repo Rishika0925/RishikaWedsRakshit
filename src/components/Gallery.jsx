@@ -16,7 +16,7 @@ function Row({ photos, reverse, onOpen }) {
           <button
             key={`${photo.src}-${index}`}
             type="button"
-            className="aspect-square w-52 shrink-0 overflow-hidden rounded-2xl bg-page sm:w-64"
+            className="flex h-56 w-56 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-page sm:h-64 sm:w-64"
             onClick={() => onOpen(photo)}
             aria-label={`View ${photo.alt}`}
           >
@@ -51,18 +51,16 @@ export function Gallery() {
   const onClose = useCallback(() => setActive(null), []);
 
   const onPrev = useCallback(
-    () =>
-      setActive(
-        (current) => (current + photos.length - 1) % photos.length
-      ),
+    () => setActive(
+      (current) => (current + photos.length - 1) % photos.length
+    ),
     [photos.length]
   );
 
   const onNext = useCallback(
-    () =>
-      setActive(
-        (current) => (current + 1) % photos.length
-      ),
+    () => setActive(
+      (current) => (current + 1) % photos.length
+    ),
     [photos.length]
   );
 
