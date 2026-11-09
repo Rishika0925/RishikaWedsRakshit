@@ -11,23 +11,22 @@ function Row({ photos, reverse, onOpen }) {
 
   return (
     <div className="marquee overflow-hidden">
-      <div className={`flex w-max items-center gap-4 ${trackClass}`}>
+      <div className={`flex w-max gap-3 ${trackClass}`}>
         {loop.map((photo, index) => (
           <button
             key={`${photo.src}-${index}`}
             type="button"
-            className="flex h-56 w-56 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-page sm:h-64 sm:w-64"
+            className="shrink-0 overflow-hidden rounded-2xl"
             onClick={() => onOpen(photo)}
-            aria-label={`View ${photo.alt}`}
           >
             <img
               src={asset(photo.src)}
               alt={photo.alt}
-              width={1600}
-              height={1600}
+              width={800}
+              height={600}
               loading="lazy"
               decoding="async"
-              className="block h-full w-full object-contain"
+              className="h-52 w-72 object-cover sm:h-64 sm:w-96"
             />
           </button>
         ))}
@@ -51,16 +50,18 @@ export function Gallery() {
   const onClose = useCallback(() => setActive(null), []);
 
   const onPrev = useCallback(
-    () => setActive(
-      (current) => (current + photos.length - 1) % photos.length
-    ),
+    () =>
+      setActive(
+        (current) => (current + photos.length - 1) % photos.length
+      ),
     [photos.length]
   );
 
   const onNext = useCallback(
-    () => setActive(
-      (current) => (current + 1) % photos.length
-    ),
+    () =>
+      setActive(
+        (current) => (current + 1) % photos.length
+      ),
     [photos.length]
   );
 
@@ -75,7 +76,7 @@ export function Gallery() {
           {site.gallery.heading}
         </h2>
 
-        <div className="mt-10 space-y-5">
+        <div className="mt-10 space-y-4">
           <Row photos={rowA} onOpen={onOpen} />
           <Row photos={rowB} reverse onOpen={onOpen} />
         </div>
