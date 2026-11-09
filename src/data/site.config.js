@@ -129,8 +129,7 @@ export const site = {
     mapsUrl: "https://share.google/MTqfaNDdaW92cfduH",
     loadMapLabel: "Load the map",
     mapTitle: "Map of K.D. FARM",
-    embedUrl:
-      "https://share.google/MTqfaNDdaW92cfduH",
+    embedUrl: "https://share.google/MTqfaNDdaW92cfduH",
     facadeCaption: "Tap to load Google Maps. The map is not loaded until you ask, so the page stays light.",
   },
   gallery: {
