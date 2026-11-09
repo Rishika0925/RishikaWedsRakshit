@@ -11,22 +11,23 @@ function Row({ photos, reverse, onOpen }) {
 
   return (
     <div className="marquee overflow-hidden">
-      <div className={`flex w-max items-center gap-3 ${trackClass}`}>
+      <div className={`flex w-max items-center gap-4 ${trackClass}`}>
         {loop.map((photo, index) => (
           <button
             key={`${photo.src}-${index}`}
             type="button"
-            className="flex h-64 w-44 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-page sm:h-80 sm:w-56"
+            className="aspect-square w-52 shrink-0 overflow-hidden rounded-2xl bg-page sm:w-64"
             onClick={() => onOpen(photo)}
+            aria-label={`View ${photo.alt}`}
           >
             <img
               src={asset(photo.src)}
               alt={photo.alt}
-              width={photo.width}
-              height={photo.height}
+              width={1600}
+              height={1600}
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-contain"
+              className="block h-full w-full object-contain"
             />
           </button>
         ))}
@@ -40,6 +41,7 @@ export function Gallery() {
   const midpoint = Math.ceil(photos.length / 2);
   const rowA = photos.slice(0, midpoint);
   const rowB = photos.slice(midpoint);
+
   const [active, setActive] = useState(null);
 
   const onOpen = (photo) => {
@@ -49,13 +51,19 @@ export function Gallery() {
   const onClose = useCallback(() => setActive(null), []);
 
   const onPrev = useCallback(
-    () => setActive((current) => (current + photos.length - 1) % photos.length),
-    [photos.length],
+    () =>
+      setActive(
+        (current) => (current + photos.length - 1) % photos.length
+      ),
+    [photos.length]
   );
 
   const onNext = useCallback(
-    () => setActive((current) => (current + 1) % photos.length),
-    [photos.length],
+    () =>
+      setActive(
+        (current) => (current + 1) % photos.length
+      ),
+    [photos.length]
   );
 
   return (
@@ -69,7 +77,7 @@ export function Gallery() {
           {site.gallery.heading}
         </h2>
 
-        <div className="mt-10 space-y-4">
+        <div className="mt-10 space-y-5">
           <Row photos={rowA} onOpen={onOpen} />
           <Row photos={rowB} reverse onOpen={onOpen} />
         </div>
