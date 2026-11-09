@@ -7,26 +7,54 @@ import { Icon } from "./Icon";
 export function MusicToggle() {
   const audioRef = useRef(null);
   const [playing, setPlaying] = useState(false);
+  const [manuallyPaused, setManuallyPaused] = useState(false);
   const { music } = site;
 
-  // Automatically attempt to play music when website opens
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
     audio.volume = 0.4;
 
-    audio.play().then(
-      () => setPlaying(true),
-      () => setPlaying(false)
-    );
-  }, []);
+    const startMusic = async () => {
+      if (!audio.paused || manuallyPaused) return;
+
+      try {
+        await audio.play();
+        setPlaying(true);
+      } catch {
+        setPlaying(false);
+      }
+    };
+
+    // First attempt automatic playback
+    startMusic();
+
+    // If blocked, start on the guest's first website interaction
+    const handleInteraction = () => {
+      startMusic();
+      window.removeEventListener("click", handleInteraction);
+      window.removeEventListener("touchstart", handleInteraction);
+      window.removeEventListener("keydown", handleInteraction);
+    };
+
+    window.addEventListener("click", handleInteraction);
+    window.addEventListener("touchstart", handleInteraction);
+    window.addEventListener("keydown", handleInteraction);
+
+    return () => {
+      window.removeEventListener("click", handleInteraction);
+      window.removeEventListener("touchstart", handleInteraction);
+      window.removeEventListener("keydown", handleInteraction);
+    };
+  }, [manuallyPaused]);
 
   function toggle() {
     const audio = audioRef.current;
     if (!audio) return;
 
     if (audio.paused) {
+      setManuallyPaused(false);
       audio.play().then(
         () => setPlaying(true),
         () => setPlaying(false)
@@ -34,6 +62,7 @@ export function MusicToggle() {
     } else {
       audio.pause();
       setPlaying(false);
+      setManuallyPaused(true);
     }
   }
 
@@ -44,6 +73,8 @@ export function MusicToggle() {
         src={asset(music.src)}
         preload="auto"
         loop
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
       />
 
       <button
